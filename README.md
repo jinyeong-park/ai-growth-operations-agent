@@ -16,7 +16,7 @@ High-growth consumer companies need marketers who can connect:
 - CAC, LTV, activation, and retention
 - AI-assisted workflows and operational automation
 
-This project demonstrates those capabilities through a working, explainable, and safety-conscious systemâ€”not merely an AI copy generator.
+This project demonstrates those capabilities through a working, explainable, and safety-conscious system—not merely an AI copy generator.
 
 ## Default Use Case
 
@@ -116,7 +116,7 @@ The default workflow is `dry-run` and `recommend-only`. The system must not spen
 
 ## Creative Intelligence Schema
 
-Each creative must preserve the strategy behind itâ€”not just the final copy.
+Each creative must preserve the strategy behind it—not just the final copy.
 
 ```yaml
 creative_id: cr_001
@@ -270,57 +270,57 @@ Live mutations must be idempotent, logged, reversible where possible, and protec
 ## Repository Structure
 
 ```text
-â”œâ”€â”€ README.md
-â”œâ”€â”€ AGENTS.md
-â”œâ”€â”€ PROJECT_BRIEF.md
-â”œâ”€â”€ CURRICULUM.md
-â”œâ”€â”€ ARCHITECTURE.md
-â”œâ”€â”€ CASE_STUDY.md
-â”œâ”€â”€ DEMO.md
-â”œâ”€â”€ DECISIONS.md
-â”œâ”€â”€ config/
-â”‚   â”œâ”€â”€ settings.py
-â”‚   â”œâ”€â”€ brand.yaml
-â”‚   â”œâ”€â”€ personas.yaml
-â”‚   â”œâ”€â”€ experiments.yaml
-â”‚   â”œâ”€â”€ metrics.yaml
-â”‚   â””â”€â”€ safety_rules.yaml
-â”œâ”€â”€ prompts/
-â”‚   â”œâ”€â”€ system_prompt.md
-â”‚   â”œâ”€â”€ creative_strategy.md
-â”‚   â”œâ”€â”€ creative_generation.md
-â”‚   â”œâ”€â”€ performance_diagnosis.md
-â”‚   â””â”€â”€ winner_iteration.md
-â”œâ”€â”€ src/
-â”‚   â”œâ”€â”€ agents/
-â”‚   â”œâ”€â”€ analytics/
-â”‚   â”œâ”€â”€ attribution/
-â”‚   â”œâ”€â”€ connectors/
-â”‚   â”œâ”€â”€ experiments/
-â”‚   â”œâ”€â”€ governance/
-â”‚   â”œâ”€â”€ reporting/
-â”‚   â””â”€â”€ models/
-â”œâ”€â”€ data/
-â”‚   â”œâ”€â”€ raw/
-â”‚   â”œâ”€â”€ processed/
-â”‚   â”œâ”€â”€ synthetic/
-â”‚   â””â”€â”€ data_dictionary.md
-â”œâ”€â”€ dashboards/
-â”œâ”€â”€ notebooks/
-â”œâ”€â”€ examples/
-â”œâ”€â”€ scripts/
-â”‚   â”œâ”€â”€ generate_synthetic_data.py
-â”‚   â””â”€â”€ run_pipeline.py
-â”œâ”€â”€ tests/
-â”‚   â”œâ”€â”€ unit/
-â”‚   â”œâ”€â”€ integration/
-â”‚   â”œâ”€â”€ contract/
-â”‚   â””â”€â”€ fixtures/
-â”œâ”€â”€ .github/workflows/
-â”œâ”€â”€ .env.example
-â”œâ”€â”€ pyproject.toml
-â”œâ”€â”€ Makefile
-â””â”€â”€ LICENSE
+├── README.md
+├── AGENTS.md
+├── PROJECT_BRIEF.md
+├── CURRICULUM.md
+├── ARCHITECTURE.md
+├── CASE_STUDY.md
+├── DEMO.md
+├── DECISIONS.md
+├── config/
+│   ├── settings.py
+│   ├── brand.yaml
+│   ├── personas.yaml
+│   ├── experiments.yaml
+│   ├── metrics.yaml
+│   └── safety_rules.yaml
+├── prompts/
+│   ├── system_prompt.md
+│   ├── creative_strategy.md
+│   ├── creative_generation.md
+│   ├── performance_diagnosis.md
+│   └── winner_iteration.md
+├── src/
+│   ├── agents/
+│   ├── analytics/
+│   ├── attribution/
+│   ├── connectors/
+│   ├── experiments/
+│   ├── governance/
+│   ├── reporting/
+│   └── models/
+├── data/
+│   ├── raw/
+│   ├── processed/
+│   ├── synthetic/
+│   └── data_dictionary.md
+├── dashboards/
+├── notebooks/
+├── examples/
+├── scripts/
+│   ├── generate_synthetic_data.py
+│   └── run_pipeline.py
+├── tests/
+│   ├── unit/
+│   ├── integration/
+│   ├── contract/
+│   └── fixtures/
+├── .github/workflows/
+├── .env.example
+├── pyproject.toml
+├── Makefile
+└── LICENSE
 ```
 
 ## Recommended Build Curriculum
