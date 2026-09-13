@@ -1,49 +1,36 @@
 # AI-Powered Creative Optimization & Growth Operations Agent
 
-An end-to-end portfolio project demonstrating how a consumer B2C growth team can use AI, experimentation, analytics, and marketing APIs to improve paid acquisition and creative operations.
+An end-to-end portfolio project demonstrating how a B2B SaaS growth team can use AI, experimentation, analytics, and marketing APIs to improve paid acquisition and creative operations.
 
-The system generates structured creative concepts, prepares draft campaigns, analyzes simulated or authorized performance data, recommends actions, and converts findings into the next round of testable hypotheses.
+The simulated company is **Tablr** — an AI-powered growth OS for independent restaurant owners. The system generates structured creative concepts, prepares draft campaigns, analyzes simulated performance data, recommends actions, and converts findings into the next round of testable hypotheses.
 
-> **Portfolio disclosure:** This is an independently built portfolio simulation. It demonstrates how a high-spend consumer growth team could structure creative generation, campaign operations, experimentation, and performance analysis. It must not be presented as evidence of managing a real $100K+/month ad budget unless supported by verifiable professional experience.
+> **Portfolio disclosure:** This is an independently built portfolio simulation using synthetic data and a hypothetical company (Tablr). It demonstrates how a growth team could structure creative generation, campaign operations, experimentation, and performance analysis. It must not be presented as evidence of managing a real ad budget unless supported by verifiable professional experience.
 
 ## Why This Project Exists
 
-High-growth consumer companies need marketers who can connect:
+Fast-growing B2B SaaS companies need marketers who can connect:
 
-- Creative strategy and production
-- Paid acquisition across multiple channels
+- Creative strategy and performance creative production
+- Paid acquisition across multiple channels (Meta, TikTok, Google, LinkedIn)
 - Experiment design and measurement
-- CAC, LTV, activation, and retention
+- Trial CAC, CPAO, LTV, activation, and retention
 - AI-assisted workflows and operational automation
 
-This project demonstrates those capabilities through a working, explainable, and safety-conscious systemâ€”not merely an AI copy generator.
+This project demonstrates those capabilities through a working, explainable, and safety-conscious system — not merely an AI copy generator.
 
 ## Default Use Case
 
-The default case study is a mobile-first gaming technology company with an AI-powered platform where users create, share, and discover games.
+The default case study is **Tablr** — a simulated AI-powered growth OS for independent restaurant owners. Tablr helps indie operators attract new customers, convert them, and build loyalty without a marketing team.
 
-Example audiences:
+Target audiences:
 
-- Casual mobile players
-- Aspiring game creators
-- UGC creators and streamers
-- Social gamers
-- AI-curious creative users
+- Independent restaurant owners (1–3 locations)
+- New restaurant owners building their first customer base
+- Delivery-heavy owners wanting to own the customer relationship
+- Growth-minded operators looking to scale without adding headcount
+- Community-focused chef-owners with strong local identity
 
-Students may adapt the project to another consumer B2C product while preserving the acquisition-to-retention framework.
-
-## Learning Objectives
-
-By completing this project, a student should be able to:
-
-1. Develop a multi-channel paid acquisition strategy.
-2. Translate customer research into personas, hooks, messages, and creative briefs.
-3. Design controlled creative experiments with explicit hypotheses.
-4. Analyze CAC, CPC, CTR, CVR, ROAS, activation, retention, and LTV.
-5. Connect acquisition data to downstream product behavior.
-6. Generate and validate structured LLM outputs.
-7. Design safe, human-approved marketing automation.
-8. Communicate findings through dashboards, weekly reviews, and a case study.
+See `PROJECT_BRIEF.md` for full persona definitions, funnel design, and KPI tree.
 
 ## Project Status
 
@@ -116,30 +103,30 @@ The default workflow is `dry-run` and `recommend-only`. The system must not spen
 
 ## Creative Intelligence Schema
 
-Each creative must preserve the strategy behind itâ€”not just the final copy.
+Each creative must preserve the strategy behind it—not just the final copy.
 
 ```yaml
 creative_id: cr_001
-persona: aspiring_game_creator
+persona: scrappy_independent_owner
 awareness_stage: problem_aware
-customer_pain: game_development_feels_inaccessible
-value_proposition: create_without_traditional_coding
-angle: speed_to_first_creation
-hook_type: demonstration
-primary_hook: "What if your game idea became playable today?"
+customer_pain: losing_customers_to_chains_and_delivery_apps
+value_proposition: marketing_infrastructure_without_a_marketing_team
+angle: compete_with_chains
+hook_type: contrast
+primary_hook: "Chains have a full marketing team. You don't. Tablr fixes that."
 supporting_claim: null
-proof_type: product_demo
-visual_concept: prompt_to_game_transformation
-opening_3_seconds: show_prompt_then_gameplay
+proof_type: social_proof_owner_testimonial
+visual_concept: side_by_side_chain_vs_indie_results
+opening_3_seconds: show_empty_tables_then_waitlist
 script: "..."
-headline: "Turn an idea into a game"
+headline: "Stop losing to the chains"
 primary_text: "..."
-cta: start_creating
-landing_page_message: create_your_first_game
-hypothesis: demonstration_hooks_increase_qualified_signups
+cta: start_free_trial
+landing_page_message: get_your_first_100_loyal_customers
+hypothesis: contrast_hooks_increase_qualified_trial_signups
 variable_tested: hook
 control_id: cr_000
-compliance_notes: avoid_unsubstantiated_speed_claims
+compliance_notes: avoid_unsubstantiated_revenue_claims
 ```
 
 Outputs may support static ads, short-form video scripts, UGC concepts, landing-page message matching, lifecycle email, and organic-to-paid candidates.
@@ -162,16 +149,16 @@ Every experiment must define:
 
 ```yaml
 experiment_id: exp_001
-question: Which hook attracts users more likely to create a game?
-hypothesis: Product-demo hooks improve activated-user CAC.
+question: Which hook attracts restaurant owners more likely to launch their first campaign?
+hypothesis: Contrast hooks (chain vs. indie) improve cost per activated owner vs. outcome hooks.
 channel: meta
 variable_tested: hook_type
 control: cr_000
 variants: [cr_001, cr_002]
-primary_metric: activated_user_cac
-guardrail_metrics: [ctr, signup_cvr, day_7_retention]
+primary_metric: cost_per_activated_owner
+guardrail_metrics: [ctr, trial_signup_cvr, m1_retention]
 minimum_clicks_per_variant: 300
-evaluation_window_days: 7
+evaluation_window_days: 14
 decision_rule: recommend_only
 ```
 
@@ -186,17 +173,19 @@ decision_rule: recommend_only
 
 ### Activation
 
-- Account created
-- First game started, completed, published, and shared
-- Activated-user rate and activated-user CAC
+- Trial signup
+- Onboarding completed
+- First campaign launched (within 14 days)
+- First customer acquired via Tablr
+- Activated-owner rate and cost per activated owner (CPAO)
 
 ### Retention and Revenue
 
-- Day 1, Day 7, and Day 30 retention
-- Returning creator rate
-- Games per retained user
-- Subscription starts and cohort revenue
+- Month 1, Month 3, and Month 6 subscription retention
+- Trial-to-paid conversion rate
+- Subscription starts and cohort MRR
 - LTV, LTV:CAC, and payback period
+- Net Revenue Retention (NRR)
 
 ### Creative Intelligence
 
@@ -224,13 +213,13 @@ Recommended events:
 
 - `ad_click`
 - `landing_page_view`
-- `user_signup`
-- `game_started`
-- `game_created`
-- `game_published`
-- `game_shared`
-- `session_returned`
+- `trial_signup`
+- `onboarding_completed`
+- `profile_created`
+- `campaign_launched`
+- `first_customer_acquired`
 - `subscription_started`
+- `location_added`
 - `revenue_generated`
 
 Preserve these join keys where applicable:
@@ -270,57 +259,57 @@ Live mutations must be idempotent, logged, reversible where possible, and protec
 ## Repository Structure
 
 ```text
-â”œâ”€â”€ README.md
-â”œâ”€â”€ AGENTS.md
-â”œâ”€â”€ PROJECT_BRIEF.md
-â”œâ”€â”€ CURRICULUM.md
-â”œâ”€â”€ ARCHITECTURE.md
-â”œâ”€â”€ CASE_STUDY.md
-â”œâ”€â”€ DEMO.md
-â”œâ”€â”€ DECISIONS.md
-â”œâ”€â”€ config/
-â”‚   â”œâ”€â”€ settings.py
-â”‚   â”œâ”€â”€ brand.yaml
-â”‚   â”œâ”€â”€ personas.yaml
-â”‚   â”œâ”€â”€ experiments.yaml
-â”‚   â”œâ”€â”€ metrics.yaml
-â”‚   â””â”€â”€ safety_rules.yaml
-â”œâ”€â”€ prompts/
-â”‚   â”œâ”€â”€ system_prompt.md
-â”‚   â”œâ”€â”€ creative_strategy.md
-â”‚   â”œâ”€â”€ creative_generation.md
-â”‚   â”œâ”€â”€ performance_diagnosis.md
-â”‚   â””â”€â”€ winner_iteration.md
-â”œâ”€â”€ src/
-â”‚   â”œâ”€â”€ agents/
-â”‚   â”œâ”€â”€ analytics/
-â”‚   â”œâ”€â”€ attribution/
-â”‚   â”œâ”€â”€ connectors/
-â”‚   â”œâ”€â”€ experiments/
-â”‚   â”œâ”€â”€ governance/
-â”‚   â”œâ”€â”€ reporting/
-â”‚   â””â”€â”€ models/
-â”œâ”€â”€ data/
-â”‚   â”œâ”€â”€ raw/
-â”‚   â”œâ”€â”€ processed/
-â”‚   â”œâ”€â”€ synthetic/
-â”‚   â””â”€â”€ data_dictionary.md
-â”œâ”€â”€ dashboards/
-â”œâ”€â”€ notebooks/
-â”œâ”€â”€ examples/
-â”œâ”€â”€ scripts/
-â”‚   â”œâ”€â”€ generate_synthetic_data.py
-â”‚   â””â”€â”€ run_pipeline.py
-â”œâ”€â”€ tests/
-â”‚   â”œâ”€â”€ unit/
-â”‚   â”œâ”€â”€ integration/
-â”‚   â”œâ”€â”€ contract/
-â”‚   â””â”€â”€ fixtures/
-â”œâ”€â”€ .github/workflows/
-â”œâ”€â”€ .env.example
-â”œâ”€â”€ pyproject.toml
-â”œâ”€â”€ Makefile
-â””â”€â”€ LICENSE
+├── README.md
+├── AGENTS.md
+├── PROJECT_BRIEF.md
+├── PHASES.md
+├── ARCHITECTURE.md
+├── CASE_STUDY.md
+├── DEMO.md
+├── DECISIONS.md
+├── config/
+│   ├── settings.py
+│   ├── brand.yaml
+│   ├── personas.yaml
+│   ├── experiments.yaml
+│   ├── metrics.yaml
+│   └── safety_rules.yaml
+├── prompts/
+│   ├── system_prompt.md
+│   ├── creative_strategy.md
+│   ├── creative_generation.md
+│   ├── performance_diagnosis.md
+│   └── winner_iteration.md
+├── src/
+│   ├── agents/
+│   ├── analytics/
+│   ├── attribution/
+│   ├── connectors/
+│   ├── experiments/
+│   ├── governance/
+│   ├── reporting/
+│   └── models/
+├── data/
+│   ├── raw/
+│   ├── processed/
+│   ├── synthetic/
+│   └── data_dictionary.md
+├── dashboards/
+├── notebooks/
+├── examples/
+├── scripts/
+│   ├── generate_synthetic_data.py
+│   └── run_pipeline.py
+├── tests/
+│   ├── unit/
+│   ├── integration/
+│   ├── contract/
+│   └── fixtures/
+├── .github/workflows/
+├── .env.example
+├── pyproject.toml
+├── Makefile
+└── LICENSE
 ```
 
 ## Recommended Build Curriculum
@@ -340,7 +329,7 @@ Do not begin with live marketing APIs. Build an end-to-end local system first, t
 | 8     | Agentic workflow              | Review gates, audit and cost controls   |
 | 9     | Portfolio packaging           | Dashboard, demo, case study, deck       |
 
-Each phase should have acceptance criteria in `CURRICULUM.md`.
+Each phase should have acceptance criteria in `PHASES.md`.
 
 ## AI Agent Working Rules
 
@@ -530,23 +519,24 @@ A production-oriented extension should address:
 
 Recommended wording:
 
-> I built a portfolio simulation of an AI-assisted growth operations system for a mobile-first consumer product. It connects creative experiments and paid acquisition metrics to activation, retention, and LTV, with human approval required for campaign actions.
+> I built a portfolio simulation of an AI-assisted growth operations system for a B2B SaaS restaurant platform (Tablr). It connects performance creative and paid acquisition to trial activation, subscription retention, and LTV — with human approval required for any campaign action.
 
-Do not claim autonomous management of a $100K/month account unless supported by genuine, verifiable experience.
+Do not claim autonomous management of a real ad budget unless supported by genuine, verifiable experience.
 
 ## Roadmap
 
-- [ ] Define the business brief, funnel, and KPI tree
-- [ ] Build synthetic acquisition and product-event data
-- [ ] Implement validated creative briefs and variants
-- [ ] Add experiment tracking and UTM governance
-- [ ] Build acquisition, retention, and LTV analysis
-- [ ] Add explainable triage recommendations
-- [ ] Create a Creative Intelligence Dashboard
-- [ ] Create a budget-allocation simulator
-- [ ] Add mock connector contract tests
-- [ ] Add optional authorized draft-mode connectors
-- [ ] Publish the case study and demo video
+- [x] Define the business brief, funnel, and KPI tree (Phase 0)
+- [ ] Build synthetic acquisition and product-event data (Phase 1)
+- [ ] Implement validated creative briefs and variants (Phase 2)
+- [ ] Structured AI creative generation with validation (Phase 3)
+- [ ] Add experiment tracking and UTM governance (Phase 4)
+- [ ] Build acquisition and creative performance analytics (Phase 5)
+- [ ] Build activation, retention, LTV, and budget analysis (Phase 6)
+- [ ] Add explainable triage recommendations (Phase 7)
+- [ ] Add mock connector contract tests and orchestration (Phase 8)
+- [ ] Create Creative Intelligence Dashboard and case study (Phase 9)
+- [ ] Add optional authorized draft-mode connectors (Phase 8B)
+- [ ] Publish demo video and interview presentation (Phase 9)
 
 ## License
 
