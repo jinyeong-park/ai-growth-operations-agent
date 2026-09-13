@@ -184,7 +184,6 @@ What business outcome should the growth system optimize, and how will the team d
 - `DECISIONS.md`
 - `docs/kpi_specification.md`
 - `docs/measurement_plan.md`
-- Initial `pyproject.toml`
 - Initial repository directories
 - Basic CI workflow
 
@@ -274,7 +273,6 @@ What data is required to connect paid-media activity to activation, retention, a
 
 ### Required deliverables
 
-- `src/models/`
 - `scripts/generate_synthetic_data.py`
 - `data/synthetic/README.md`
 - `data/data_dictionary.md`
@@ -384,13 +382,13 @@ Which audiences, motivations, barriers, messages, and creative formats should be
 
 ### Required deliverables
 
-- `config/personas.yaml`
-- `config/brand.yaml`
+- `data/config/personas.yaml`
+- `data/config/brand.yaml`
 - `docs/message_map.md`
 - `docs/hook_taxonomy.md`
 - `docs/creative_testing_matrix.md`
 - `docs/creative_qc_checklist.md`
-- `examples/creative_briefs/`
+- `docs/examples/creative_briefs/`
 
 ### Acceptance criteria
 
@@ -475,12 +473,8 @@ How can an AI system increase creative velocity without losing strategic intent,
 
 ### Required deliverables
 
-- `src/agents/creative_generator.py`
-- `src/providers/base.py`
-- `src/providers/mock.py`
-- `src/providers/anthropic.py`
-- `prompts/system_prompt.md`
-- `prompts/creative_generation.md`
+- `docs/prompts/system_prompt.md`
+- `docs/prompts/creative_generation.md`
 - `evals/creative_generation_cases.yaml`
 - `tests/unit/test_creative_generator.py`
 - `tests/integration/test_llm_contract.py`
@@ -571,11 +565,9 @@ How can the team distinguish real learning from uncontrolled creative variation 
 
 ### Required deliverables
 
-- `src/experiments/registry.py`
-- `src/experiments/evaluator.py`
-- `config/experiments.yaml`
+- `data/config/experiments.yaml`
 - `docs/experiment_playbook.md`
-- `examples/experiment_readout.md`
+- `docs/examples/experiment_readout.md`
 - Experiment unit and integration tests
 
 ### Acceptance criteria
@@ -661,11 +653,8 @@ What happened in paid acquisition, which creative attributes explain it, and whe
 
 ### Required deliverables
 
-- `src/analytics/campaign_metrics.py`
-- `src/analytics/creative_intelligence.py`
-- `src/analytics/data_quality.py`
-- `sql/` analytical models
-- `notebooks/01_acquisition_analysis.ipynb`
+- `scripts/sql/` analytical models
+- `docs/notebooks/01_acquisition_analysis.ipynb`
 - `reports/acquisition_baseline.md`
 - Analytics unit and regression tests
 
@@ -757,13 +746,9 @@ Which acquisition sources produce users who reach value, return, and generate en
 
 ### Required deliverables
 
-- `src/analytics/cohorts.py`
-- `src/analytics/retention.py`
-- `src/analytics/ltv.py`
-- `src/analytics/budget_allocator.py`
-- `notebooks/02_retention_ltv.ipynb`
+- `docs/notebooks/02_retention_ltv.ipynb`
 - `reports/acquisition_quality.md`
-- `examples/budget_recommendation.json`
+- `docs/examples/budget_recommendation.json`
 - Cohort, LTV, and allocation tests
 
 ### Acceptance criteria
@@ -851,12 +836,8 @@ How can the system convert multi-layer performance evidence into useful recommen
 
 ### Required deliverables
 
-- `src/decisioning/policy.py`
-- `src/agents/performance_analyst.py`
-- `src/agents/growth_reviewer.py`
-- `prompts/performance_diagnosis.md`
-- `prompts/winner_iteration.md`
-- `src/governance/audit.py`
+- `docs/prompts/performance_diagnosis.md`
+- `docs/prompts/winner_iteration.md`
 - Recommendation examples
 - Decision-policy and agent tests
 
@@ -948,12 +929,6 @@ How can the workflow operate reliably across systems while preventing duplicate,
 
 #### Required deliverables
 
-- `src/connectors/base.py`
-- `src/connectors/mock_meta.py`
-- `src/connectors/mock_tiktok.py`
-- `src/orchestration/pipeline.py`
-- `src/governance/approvals.py`
-- `src/governance/policies.py`
 - `scripts/run_pipeline.py`
 - Contract and end-to-end tests
 

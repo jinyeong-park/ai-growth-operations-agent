@@ -136,146 +136,52 @@ flowchart TD
 
 ```text
 ├── README.md
-├── PROJECT_BRIEF.md
-├── PHASES.md
-├── AGENTS.md
-├── ARCHITECTURE.md
-├── DECISIONS.md
-├── CASE_STUDY.md
-├── DEMO.md
-├── pyproject.toml
-├── Makefile
 ├── .env.example
 ├── .gitignore
 │
-├── config/
-│   ├── brand.yaml
-│   ├── personas.yaml
-│   ├── channels.yaml
-│   ├── experiments.yaml
-│   ├── metrics.yaml
-│   └── safety_rules.yaml
+├── process/                     # project story (human-readable, phase by phase)
 │
-├── prompts/
-│   ├── system_prompt.md
-│   ├── creative_strategy.md
-│   ├── creative_generation.md
-│   ├── performance_diagnosis.md
-│   └── winner_iteration.md
+├── docs/                        # all reference documents
+│   ├── PROJECT_BRIEF.md
+│   ├── PHASES.md
+│   ├── AGENTS.md
+│   ├── ARCHITECTURE.md
+│   ├── CASE_STUDY.md
+│   ├── DEMO.md
+│   ├── message_map.md
+│   ├── hook_taxonomy.md
+│   ├── creative_testing_matrix.md
+│   ├── creative_qc_checklist.md
+│   ├── experiment_playbook.md
+│   ├── experiment_readout.md
+│   ├── evals/
+│   ├── reports/
+│   ├── examples/                # creative briefs, sample agent outputs
+│   │   ├── creative_briefs/
+│   │   ├── channel_recommendations.json
+│   │   └── budget_recommendation.json
+│   ├── notebooks/               # analysis notebooks
+│   └── prompts/                 # LLM prompt templates
 │
-├── src/growth_agent/
-│   ├── __init__.py
-│   ├── cli.py
-│   ├── settings.py
-│   ├── exceptions.py
-│   │
-│   ├── domain/
-│   │   ├── enums.py
-│   │   ├── personas.py
-│   │   ├── creatives.py
-│   │   ├── experiments.py
-│   │   ├── campaigns.py
-│   │   ├── events.py
-│   │   ├── metrics.py
-│   │   ├── recommendations.py
-│   │   └── approvals.py
-│   │
-│   ├── creative/
-│   │   ├── service.py
-│   │   ├── validators.py
-│   │   ├── deduplication.py
-│   │   └── claim_checks.py
-│   │
-│   ├── providers/
-│   │   ├── base.py
-│   │   ├── mock.py
-│   │   └── anthropic.py
-│   │
-│   ├── experiments/
-│   │   ├── registry.py
-│   │   ├── evaluator.py
-│   │   └── maturity.py
-│   │
-│   ├── connectors/
-│   │   ├── base.py
-│   │   ├── mock_meta.py
-│   │   ├── mock_tiktok.py
-│   │   ├── meta.py
-│   │   └── tiktok.py
-│   │
-│   ├── storage/
-│   │   ├── paths.py
-│   │   ├── parquet.py
-│   │   ├── duckdb.py
-│   │   └── repositories.py
-│   │
-│   ├── analytics/
-│   │   ├── campaign_metrics.py
-│   │   ├── creative_intelligence.py
-│   │   ├── cohorts.py
-│   │   ├── retention.py
-│   │   ├── ltv.py
-│   │   ├── budget_allocator.py
-│   │   └── data_quality.py
-│   │
-│   ├── decisioning/
-│   │   ├── evidence.py
-│   │   ├── policy.py
-│   │   ├── recommendation_service.py
-│   │   └── narrative.py
-│   │
-│   ├── governance/
-│   │   ├── safety.py
-│   │   ├── approvals.py
-│   │   ├── audit.py
-│   │   └── redaction.py
-│   │
-│   ├── reporting/
-│   │   ├── weekly_review.py
-│   │   ├── exporters.py
-│   │   └── disclosures.py
-│   │
-│   └── orchestration/
-│       ├── pipeline.py
-│       └── run_context.py
-│
-├── sql/
-│   ├── staging/
-│   ├── intermediate/
-│   └── marts/
+├── app/                         # Streamlit dashboard
 │
 ├── data/
+│   ├── config/                  # YAML configs (brand, personas, channels, experiments)
 │   ├── raw/
 │   ├── canonical/
 │   ├── processed/
 │   ├── synthetic/
 │   └── data_dictionary.md
 │
-├── artifacts/
-│   ├── creatives/
-│   ├── experiments/
-│   ├── recommendations/
-│   ├── reports/
-│   └── audit/
-│
-├── dashboards/
-│   └── app.py
-├── notebooks/
 ├── scripts/
 │   ├── generate_synthetic_data.py
-│   └── run_pipeline.py
-├── evals/
-├── examples/
+│   └── sql/                     # DuckDB analytical queries
+│
 └── tests/
     ├── unit/
     ├── data/
-    ├── contract/
-    ├── integration/
-    ├── e2e/
     └── fixtures/
 ```
-
-The package layout uses `src/growth_agent/` to prevent accidental imports from the repository root and to keep application code distinct from scripts and artifacts.
 
 ## 7. Domain Model
 

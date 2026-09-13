@@ -30,7 +30,7 @@ Target audiences:
 - Growth-minded operators looking to scale without adding headcount
 - Community-focused chef-owners with strong local identity
 
-See `PROJECT_BRIEF.md` for full persona definitions, funnel design, and KPI tree.
+See `docs/PROJECT_BRIEF.md` for full persona definitions, funnel design, and KPI tree.
 
 ## Project Status
 
@@ -258,58 +258,67 @@ Live mutations must be idempotent, logged, reversible where possible, and protec
 
 ## Repository Structure
 
+Folders and files are created incrementally by phase. The table below shows what exists after each phase completes.
+
+| Phase | What gets created |
+|-------|------------------|
+| 0 (Strategy) | `README.md`, `docs/PROJECT_BRIEF.md`, `docs/PHASES.md`, `docs/ARCHITECTURE.md`, `docs/AGENTS.md` |
+| 1 (Synthetic data) | `scripts/generate_synthetic_data.py`, `data/synthetic/`, `data/data_dictionary.md`, `tests/data/` |
+| 2 (Creative strategy) | `data/config/`, `docs/message_map.md`, `docs/hook_taxonomy.md`, `docs/creative_testing_matrix.md`, `docs/creative_qc_checklist.md`, `docs/examples/creative_briefs/` |
+| 3 (AI generation) | `docs/prompts/`, `docs/evals/`, `tests/unit/test_creative_generator.py` |
+| 4 (Experiments) | `data/config/experiments.yaml`, `docs/experiment_playbook.md`, `docs/experiment_readout.md` |
+| 5 (Analytics) | `scripts/sql/`, `docs/notebooks/01_acquisition_analysis.ipynb`, `docs/reports/` |
+| 6 (Retention / LTV) | `docs/notebooks/02_retention_ltv.ipynb`, `docs/examples/budget_recommendation.json` |
+| 7 (Decision agent) | `docs/prompts/performance_diagnosis.md` |
+| 8 (Orchestration) | `scripts/run_pipeline.py` |
+| 9 (Dashboard / Demo) | `app/`, `docs/CASE_STUDY.md`, `docs/DEMO.md` |
+
 ```text
-├── README.md
-├── AGENTS.md
-├── PROJECT_BRIEF.md
-├── PHASES.md
-├── ARCHITECTURE.md
-├── CASE_STUDY.md
-├── DEMO.md
-├── DECISIONS.md
-├── config/
-│   ├── settings.py
-│   ├── brand.yaml
-│   ├── personas.yaml
-│   ├── experiments.yaml
-│   ├── metrics.yaml
-│   └── safety_rules.yaml
-├── prompts/
-│   ├── system_prompt.md
-│   ├── creative_strategy.md
-│   ├── creative_generation.md
-│   ├── performance_diagnosis.md
-│   └── winner_iteration.md
-├── src/
-│   ├── agents/
-│   ├── analytics/
-│   ├── attribution/
-│   ├── connectors/
-│   ├── experiments/
-│   ├── governance/
-│   ├── reporting/
-│   └── models/
+├── README.md                          # start here
+│
+├── process/                           # project story (human-readable)
+│   ├── 00_overview.md
+│   ├── 01_data_foundation.md          # Phase 1
+│   ├── 02_creative_strategy.md        # Phase 2
+│   ├── 03_ai_creative_generation.md   # Phase 3
+│   ├── 04_experiments.md              # Phase 4
+│   ├── 05_acquisition_analytics.md    # Phase 5
+│   ├── 06_retention_ltv.md            # Phase 6
+│   └── 07_decision_agent.md           # Phase 7
+│
+├── docs/                              # all reference documents
+│   ├── PHASES.md
+│   ├── PROJECT_BRIEF.md
+│   ├── ARCHITECTURE.md
+│   ├── AGENTS.md
+│   ├── CASE_STUDY.md                  # Phase 9
+│   ├── DEMO.md                        # Phase 9
+│   ├── message_map.md
+│   ├── hook_taxonomy.md
+│   ├── creative_testing_matrix.md
+│   ├── creative_qc_checklist.md
+│   ├── experiment_playbook.md
+│   ├── experiment_readout.md
+│   ├── evals/
+│   ├── reports/
+│   ├── examples/                      # creative briefs, sample outputs
+│   │   ├── creative_briefs/
+│   │   ├── channel_recommendations.json
+│   │   └── budget_recommendation.json
+│   ├── notebooks/                     # analysis notebooks
+│   │   ├── 01_acquisition_analysis.ipynb
+│   │   └── 02_retention_ltv.ipynb
+│   └── prompts/                       # LLM prompt templates
+│
+├── app/                               # Streamlit dashboard (Phase 9)
 ├── data/
-│   ├── raw/
-│   ├── processed/
-│   ├── synthetic/
+│   ├── config/                        # YAML configs (brand, channels, personas)
+│   ├── synthetic/                     # synthetic dataset
 │   └── data_dictionary.md
-├── dashboards/
-├── notebooks/
-├── examples/
 ├── scripts/
 │   ├── generate_synthetic_data.py
-│   └── run_pipeline.py
-├── tests/
-│   ├── unit/
-│   ├── integration/
-│   ├── contract/
-│   └── fixtures/
-├── .github/workflows/
-├── .env.example
-├── pyproject.toml
-├── Makefile
-└── LICENSE
+│   └── sql/                           # DuckDB analytical queries
+└── tests/                             # unit, data, integration tests
 ```
 
 ## Recommended Build Curriculum
@@ -329,11 +338,11 @@ Do not begin with live marketing APIs. Build an end-to-end local system first, t
 | 8     | Agentic workflow              | Review gates, audit and cost controls   |
 | 9     | Portfolio packaging           | Dashboard, demo, case study, deck       |
 
-Each phase should have acceptance criteria in `PHASES.md`.
+Each phase should have acceptance criteria in `docs/PHASES.md`.
 
 ## AI Agent Working Rules
 
-The complete coding-agent instructions belong in `AGENTS.md`. At minimum, the agent must:
+The complete coding-agent instructions belong in `docs/AGENTS.md`. At minimum, the agent must:
 
 - Read the brief, architecture, and relevant module before editing.
 - Default to mock data, dry-run, and recommendation-only behavior.
@@ -364,14 +373,14 @@ git clone https://github.com/your-username/ai-growth-operations-agent.git
 cd ai-growth-operations-agent
 python -m venv .venv
 source .venv/bin/activate
-pip install -e ".[dev]"
+pip install -r app/requirements.txt
 ```
 
 Windows PowerShell:
 
 ```powershell
 .venv\Scripts\Activate.ps1
-pip install -e ".[dev]"
+pip install -r app/requirements.txt
 ```
 
 ### Configuration
@@ -462,7 +471,7 @@ mypy src
 
 ## Case Study Structure
 
-Use `CASE_STUDY.md` to explain:
+Use `docs/CASE_STUDY.md` to explain:
 
 1. Business problem
 2. Customer and growth hypothesis
@@ -526,17 +535,17 @@ Do not claim autonomous management of a real ad budget unless supported by genui
 ## Roadmap
 
 - [x] Define the business brief, funnel, and KPI tree (Phase 0)
-- [ ] Build synthetic acquisition and product-event data (Phase 1)
-- [ ] Implement validated creative briefs and variants (Phase 2)
-- [ ] Structured AI creative generation with validation (Phase 3)
-- [ ] Add experiment tracking and UTM governance (Phase 4)
-- [ ] Build acquisition and creative performance analytics (Phase 5)
-- [ ] Build activation, retention, LTV, and budget analysis (Phase 6)
-- [ ] Add explainable triage recommendations (Phase 7)
+- [x] Build synthetic acquisition and product-event data (Phase 1)
+- [x] Implement validated creative briefs and variants (Phase 2)
+- [x] Structured AI creative generation with validation (Phase 3)
+- [x] Add experiment tracking and UTM governance (Phase 4)
+- [x] Build acquisition and creative performance analytics (Phase 5)
+- [x] Build activation, retention, LTV, and budget analysis (Phase 6)
+- [x] Add explainable triage recommendations (Phase 7)
+- [x] Create Creative Intelligence Dashboard and case study (Phase 9)
 - [ ] Add mock connector contract tests and orchestration (Phase 8)
-- [ ] Create Creative Intelligence Dashboard and case study (Phase 9)
 - [ ] Add optional authorized draft-mode connectors (Phase 8B)
-- [ ] Publish demo video and interview presentation (Phase 9)
+- [ ] Publish demo video and interview presentation
 
 ## License
 
